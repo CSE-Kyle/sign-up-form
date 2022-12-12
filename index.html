@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: url(./images/bg-intro-desktop.png);
+        background-color: #FF7979;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .main-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100vh;
+      }
+
+      .left {
+        color: #fff;
+      }
+
+      #btn-sub {
+        background-color: #5E54A4;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        color: #fff;
+        border: none;
+        padding: 15px;
+        width: 120%;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        width: 120%;
+        margin-top: 20px;
+        padding: 2rem;
+        border-radius: 10px;
+      } 
+
+      .input {
+        line-height: 1.5;
+        padding: 12px;
+        border: 1px solid #DEDEDE;
+        border-radius: 5px
+      }
+
+      ::placeholder {
+        color: #3D3B48;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      input:focus::placeholder {
+        color: transparent;
+      }
+
+      #btn-trial {
+        border: none;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #38CC8B;
+      }
+
+      #btn-trial:hover {
+        background-color:#31a271;
+        transition: 0.3s;
+      }
+
+      #description {
+        font-size: 12px;
+        text-align: center;
+        color: #BAB7D4;
+      }
+
+      #txt-red {
+        color: #FF7979;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="main-content">
+        <div class="left">
+          <h1>Learn to code by<br> watching others</h1>
+
+          <p>See how experienced developers solve problems in real-time.<br> Watching scripted tutorials is great, 
+          but understanding how<br> developers think is invaluable. </p>
+        </div>
+
+        <div class="right">
+          <button id="btn-sub">Try it free 7 days then $20/mo. thereafter</button>
+
+          <form action="#" class="form">
+            <input type="text" class="input" placeholder="First Name">
+            <br>
+            <input type="text" class="input" placeholder="Last Name">
+            <br>
+            <input type="text" class="input" placeholder="Email Address">
+            <br>
+            <input type="text" class="input" placeholder="Password">
+            <button id="btn-trial">CLAIM YOUR FREE TRIAL</button>
+            <p id="description">By clicking the button, you are agreeing to our <span id="txt-red">Terms and Services</span></p>
+          </form>
+        </div>
+      </div>
+
+      <footer>
+        <p class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="#">Your Name Here</a>.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
