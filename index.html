@@ -20,17 +20,36 @@
         background: url(./images/bg-intro-desktop.png);
         background-color: #FF7979;
         font-family: 'Poppins', sans-serif;
+
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .txt-error {
+        text-align: right;
+        color: #FF7979;
+        font-style: italic;
+        font-size: 10px;
       }
 
       .main-content {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        height: 100vh;
       }
 
       .left {
+        display: block;
         color: #fff;
+        margin-right: 5rem;
       }
 
       #btn-sub {
@@ -44,7 +63,7 @@
         width: 120%;
       }
 
-      .form {
+      #form {
         display: flex;
         flex-direction: column;
         background-color: #fff;
@@ -81,7 +100,7 @@
       }
 
       #btn-trial:hover {
-        background-color:#31a271;
+        background-color: #77E2B3;
         transition: 0.3s;
       }
 
@@ -98,38 +117,75 @@
   </head>
 
   <body>
-    <main>
-      <div class="main-content">
-        <div class="left">
-          <h1>Learn to code by<br> watching others</h1>
+    <div class="main-content">
+      <div class="left">
+        <h1>Learn to code by<br>watching others</h1>
 
-          <p>See how experienced developers solve problems in real-time.<br> Watching scripted tutorials is great, 
-          but understanding how<br> developers think is invaluable. </p>
-        </div>
-
-        <div class="right">
-          <button id="btn-sub">Try it free 7 days then $20/mo. thereafter</button>
-
-          <form action="#" class="form">
-            <input type="text" class="input" placeholder="First Name">
-            <br>
-            <input type="text" class="input" placeholder="Last Name">
-            <br>
-            <input type="text" class="input" placeholder="Email Address">
-            <br>
-            <input type="text" class="input" placeholder="Password">
-            <button id="btn-trial">CLAIM YOUR FREE TRIAL</button>
-            <p id="description">By clicking the button, you are agreeing to our <span id="txt-red">Terms and Services</span></p>
-          </form>
-        </div>
+        <p>See how experienced developers solve problems in real-time.<br> Watching scripted tutorials is great, 
+        but understanding how<br> developers think is invaluable. </p>
       </div>
 
-      <footer>
-        <p class="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">Your Name Here</a>.
-        </p>
-      </footer>
-    </main>
+      <div class="right">
+        <button id="btn-sub">Try it free 7 days then $20/mo. thereafter</button>
+
+        <form action="#" id="form">
+          <input type="text" class="input" placeholder="First Name" id="first-name">
+          <p class="txt-error" id="error-one"></p>
+          <input type="text" class="input" placeholder="Last Name" id="last-name">
+          <p class="txt-error" id="error-two"></p>
+          <input type="text" class="input" placeholder="Email Address" id="email-input">
+          <p class="txt-error" id="error-three"></p>
+          <input type="text" class="input" placeholder="Password" id="pwd-input">
+          <p class="txt-error" id="error-four"></p>
+          <button type="submit" id="btn-trial" onclick="inputCheck()">CLAIM YOUR FREE TRIAL</button>
+          <p class="txt-error" id="description">By clicking the button, you are agreeing to our <span id="txt-red">Terms and Services</span></p>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+
+    <script>    
+      function inputCheck() {
+        let inputOne = document.getElementById('first-name').value;
+        let inputTwo = document.getElementById('last-name').value;
+        let inputThree = document.getElementById('email-input').value;
+        let inputFour = document.getElementById('pwd-input').value;
+
+        let errorOne = document.getElementById('error-one');
+        let errorTwo = document.getElementById('error-two');
+        let errorThree = document.getElementById('error-three');
+        let errorFour = document.getElementById('error-four');
+
+        if (inputOne == '' || inputTwo == '' || inputThree == '' || inputFour == '') {
+          document.getElementById('first-name').style.borderColor = '#FF7979';
+          document.getElementById('last-name').style.borderColor = '#FF7979';
+          document.getElementById('email-input').style.borderColor = '#FF7979';
+          document.getElementById('pwd-input').style.borderColor = '#FF7979';
+
+          errorOne.innerHTML = 'First Name cannot be empty';
+          errorTwo.innerHTML = 'Last Name cannot be empty';
+          errorThree.innerHTML = 'Email cannot be empty';
+          errorFour.innerHTML = 'Password cannot be empty';
+        } else {
+          errorOne.innerHTML = '';
+          errorTwo.innerHTML = '';
+          errorThree.innerHTML = '';
+          errorFour.innerHTML = '';
+        }
+
+        setTimeout(() => {
+          errorOne.innerHTML = '';
+          errorTwo.innerHTML = '';
+          errorThree.innerHTML = '';
+          errorFour.innerHTML = '';
+        }, 8000);
+      }
+    </script>
   </body>
 </html>
